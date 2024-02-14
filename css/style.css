@@ -1,0 +1,38 @@
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    align-items: center;
+    border: 1px solid #000000;
+}
+
+.image {
+    height: 80%;
+}
+
+.image img {
+    width: 100%;
+}
+
+.text {
+    height: 10%;
+}
+
+.buttons {
+    height: 10%;
+}
+
+.hide {
+    display: none;
+}
+
+/* .buttons button {
+    
+} */
