@@ -13,6 +13,10 @@
     border: 1px solid #000000;
 }
 
+.buy {
+    text-align: center;
+}
+
 .image {
     height: 80%;
 }
