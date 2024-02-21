@@ -67,6 +67,7 @@ const items = [
 // const minusButton = document.querySelector(".minus");
 // const plusButton = document.querySelector(".plus");
 // const count = document.querySelector(".count");
+const tg = window.Telegram.WebApp;
 const main = document.querySelector(".main");
 
 function addItem(object) {
@@ -128,6 +129,10 @@ document.querySelectorAll(".minus").forEach((minusButton) => {
             addButton.classList.remove("hide")
         }
     });
+});
+
+document.querySelector(".buy").addEventListener("click", () => {
+    tg.sendData(items);
 });
 
 
