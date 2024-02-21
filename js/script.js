@@ -132,7 +132,7 @@ document.querySelectorAll(".minus").forEach((minusButton) => {
 });
 
 document.querySelector(".buy").addEventListener("click", () => {
-    tg.sendData(items);
+    tg.sendData(JSON.stringify(items));
     console.log(101);
 });
 
