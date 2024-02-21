@@ -133,6 +133,7 @@ document.querySelectorAll(".minus").forEach((minusButton) => {
 
 document.querySelector(".buy").addEventListener("click", () => {
     tg.sendData(items);
+    console.log(101);
 });
 
 
