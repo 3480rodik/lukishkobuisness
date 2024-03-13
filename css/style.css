@@ -16,7 +16,8 @@
 .buy {
     margin: 5% 0% 5% 30%;
     width: 40%;
-    height: 20%;
+    font-size: 32px;
+    background-color: #ead20a;
 }
 
 .image {
