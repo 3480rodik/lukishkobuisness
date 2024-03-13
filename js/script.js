@@ -70,8 +70,9 @@ const items = [
 const tg = window.Telegram.WebApp;
 const main = document.querySelector(".main");
 
-function addItem(object) {
+function addItem(object, index) {
     const divItem = document.createElement("div");
+    divItem.id = index
     divItem.classList.add("item")
     divItem.innerHTML = `
         <div class="count hide">${object.count}</div>
@@ -88,8 +89,8 @@ function addItem(object) {
     return divItem;
 }
 
-items.forEach((item) => {
-    main.appendChild(addItem(item));
+items.forEach((item, index) => {
+    main.appendChild(addItem(item, index));
 })
 
 document.querySelectorAll(".add").forEach((addButton) => {
@@ -99,16 +100,21 @@ document.querySelectorAll(".add").forEach((addButton) => {
         console.log(addButton.parentNode.parentNode);
         plusAndMinusButtons[1].classList.remove("hide");
         plusAndMinusButtons[2].classList.remove("hide");
-        count = addButton.parentNode.parentNode.querySelector(".count");
+
+        productDiv = addButton.parentNode.parentNode;
+        count = productDiv.querySelector(".count");
         count.textContent = +count.textContent + 1;
+        items[+productDiv.id].count += 1;
         count.classList.remove("hide");
     });
 });
 
 document.querySelectorAll(".plus").forEach((plusButton) => {
     plusButton.addEventListener("click", () => {
-        count = plusButton.parentNode.parentNode.querySelector(".count");
+        productDiv = plusButton.parentNode.parentNode;
+        count = productDiv.querySelector(".count");
         count.textContent = +count.textContent + 1;
+        items[+productDiv.id].count += 1;
         if (+count.textContent) {
             count.classList.remove("hide");
         }
@@ -117,8 +123,10 @@ document.querySelectorAll(".plus").forEach((plusButton) => {
 
 document.querySelectorAll(".minus").forEach((minusButton) => {
     minusButton.addEventListener("click", () => {
-        count = minusButton.parentNode.parentNode.querySelector(".count");
+        productDiv = minusButton.parentNode.parentNode;
+        count = productDiv.querySelector(".count");
         count.textContent = +count.textContent - 1;
+        items[+productDiv.id].count -= 1;
         if (!+count.textContent) {
             addButton = minusButton.parentNode.children[0];
             plusButton = minusButton.parentNode.children[2];
